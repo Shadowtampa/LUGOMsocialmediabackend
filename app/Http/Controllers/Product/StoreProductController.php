@@ -15,7 +15,14 @@ class StoreProductController extends Controller
 
     public function __invoke(StoreProductRequest $request)
     {
-        return $this->storeProductService->store($request->toArray());
+
+        $product = $this->storeProductService->store($request->toArray());
+
+        return response()->json([
+            'message' => 'Produto criado com sucesso!',
+            'product' => $product,
+            'image_url' => $product->image ? asset("storage/{$product->image}") : null,
+        ], 201);
     }
 
 }

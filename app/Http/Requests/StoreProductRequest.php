@@ -26,6 +26,7 @@ class StoreProductRequest extends FormRequest
             'description' => 'nullable|string',
             'condition' => 'required|in:new,used',
             'available' => 'boolean',
+            'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048', // Imagem opcional
         ];
     }
 

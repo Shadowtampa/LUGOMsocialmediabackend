@@ -22,3 +22,10 @@ yarn-error.log
 /.vscode
 /.zed
 /.docker
+.docker/
+id_ed25519_pessoal
+id_ed25519_pessoal.pub
+id_ed255199_nova
+id_ed255199_nova.pub
+id_ed255199_pessoal
+id_ed255199_pessoal.pub

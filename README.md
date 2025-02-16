@@ -1,37 +1,19 @@
 
-# Setup Docker Para Projetos Laravel (8, 9, 10 ou 11)
-[Assine a Academy, e Seja VIP!](https://academy.especializati.com.br)
+# Setup Docker com Autenticação Laravel Sanctum Para Projetos Laravel (11)
+[Inspirado em EspecializaTI](https://academy.especializati.com.br)
 
 ### Passo a passo
-Clone Repositório
-```sh
-git clone https://github.com/especializati/setup-docker-laravel.git
-```
 
-Clone os Arquivos do Laravel
-```sh
-git clone https://github.com/laravel/laravel.git app-laravel
-```
-
-
-Copie os arquivos docker-compose.yml, Dockerfile e o diretório docker/ para o seu projeto
-```sh
-cp -rf setup-docker-laravel/* app-laravel/
-```
-```sh
-cd app-laravel/
-```
-
+Clone o repositório
 
 Crie o Arquivo .env
 ```sh
 cp .env.example .env
 ```
 
-
 Atualize as variáveis de ambiente do arquivo .env
 ```dosini
-APP_NAME="Especializa Ti"
+APP_NAME="Laravel 11 com Autenticação"
 APP_URL=http://localhost:8989
 
 DB_CONNECTION=mysql
@@ -40,16 +22,6 @@ DB_PORT=3306
 DB_DATABASE=laravel
 DB_USERNAME=root
 DB_PASSWORD=root
-
-CACHE_DRIVER=redis
-QUEUE_CONNECTION=redis
-SESSION_DRIVER=redis
-
-REDIS_HOST=redis
-REDIS_PASSWORD=null
-REDIS_PORT=6379
-```
-
 
 Suba os containers do projeto
 ```sh
@@ -74,6 +46,11 @@ Gerar a key do projeto Laravel
 php artisan key:generate
 ```
 
-
 Acessar o projeto
 [http://localhost:8989](http://localhost:8989)
+
+Importar a collection de rotas que estão na raiz do projeto em: 
+
+```json
+Auth.postman_collection.json
+```

@@ -46,10 +46,15 @@ Gerar a key do projeto Laravel
 php artisan key:generate
 ```
 
+Rodar as migrations
+```sh
+php artisan migrate
+```
+
 Acessar o projeto
 [http://localhost:8989](http://localhost:8989)
 
-Importar a collection de rotas que est√£o na raiz do projeto em: 
+Importar a collection de rotas que est„o na raiz do projeto em: 
 
 ```json
 Auth.postman_collection.json

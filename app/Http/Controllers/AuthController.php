@@ -19,8 +19,11 @@ class AuthController extends Controller
             "password" => "required|min:3|confirmed"
         ]);
 
-        $user = User::create($request->all());
-
+        $user = User::create([
+            "name" => $request->name,
+            "email" => $request->email,
+            "password" => $request->password, // Hash da senha
+        ]);
 
         $token = $user->createToken($request->name);
 

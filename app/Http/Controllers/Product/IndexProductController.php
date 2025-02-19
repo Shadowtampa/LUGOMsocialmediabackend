@@ -9,11 +9,10 @@ use Illuminate\Database\Eloquent\Collection;
 class IndexProductController extends Controller
 {
 
-    public function __construct(private IndexProductService $productService ){}
+    public function __construct(private IndexProductService $productService) {}
 
-    public function __invoke() : Collection
+    public function __invoke(): Collection
     {
-        return $this->productService->index();
+        return ($this->productService)();
     }
-
 }

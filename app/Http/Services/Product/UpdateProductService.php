@@ -8,10 +8,11 @@ use Illuminate\Http\Request;
 
 class UpdateProductService extends Service
 {
-    public function update($request) : Product{ 
+    public function update($request): Product
+    {
 
 
-        $product = Product::whereId($request["product_id"])->where('user_id', $request["product_id"])->first();
+        $product = Product::whereId($request["product_id"])->where('user_id', $request["user_id"])->first();
 
 
         isset($request['name']) && $product->name = $request['name'];

@@ -8,7 +8,8 @@ use Illuminate\Http\Request;
 
 class IndexProductService extends Service
 {
-    public function index(){ 
+    public function __invoke()
+    {
         return Product::where("user_id", auth()->user()->id)->get();
     }
 }

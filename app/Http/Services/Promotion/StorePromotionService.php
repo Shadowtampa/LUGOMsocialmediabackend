@@ -3,7 +3,7 @@
 namespace App\Http\Services\Promotion;
 
 use App\Http\Services\Service;
-use App\Models\Promotion;
+use App\Models\Promotion\Promotion;
 use Illuminate\Http\Request;
 
 class StorePromotionService extends Service

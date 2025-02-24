@@ -10,8 +10,8 @@ class PromotionConfigValidatorFactory
     {
         return match ($promotionTypeId) {
             2 => new FixedDiscountValidator(),
-                // 3 => new PercentageDiscountValidator(),
-                // 4 => new BuyXGetYValidator(),
+            3 => new PercentageDiscountPromotionValidator(),
+            4 => new BuyXGetYPromotionValidator(),
             default => null,
         };
     }

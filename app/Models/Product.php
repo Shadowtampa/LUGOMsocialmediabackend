@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Product extends Model
 {
@@ -24,5 +25,11 @@ class Product extends Model
     public function products(): HasMany
     {
         return $this->hasMany(ProductPrice::class);
+    }
+
+    // Criando um accessor para retornar a URL completa da imagem
+    public function getImageAttribute($value)
+    {
+        return $value ? asset("storage/{$value}") : null;
     }
 }

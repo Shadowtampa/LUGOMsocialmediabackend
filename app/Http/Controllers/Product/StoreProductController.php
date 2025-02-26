@@ -21,8 +21,7 @@ class StoreProductController extends Controller
         return response()->json([
             'message' => 'Produto criado com sucesso!',
             'product' => $product,
-            'image_url' => $product->image ? asset("storage/{$product->image}") : null,
-        ], 201);
+            'image' => $product->image ? url("storage/{$product->image}") : null,        ], 201);
     }
 
 }

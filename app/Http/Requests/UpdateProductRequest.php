@@ -26,10 +26,11 @@ class UpdateProductRequest extends FormRequest
             'description' => 'nullable|string',
             'condition' => 'required|in:new,used',
             'available' => 'boolean',
+            'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048', // Imagem opcional
         ];
     }
 
-        /**
+    /**
      * Get all the input and files for the request.
      *
      * @param  array|null  $keys
@@ -37,7 +38,7 @@ class UpdateProductRequest extends FormRequest
      */
     public function all($keys = null): array
     {
-        $data                 = parent::all();
+        $data = parent::all();
         $data['product_id'] = $this->route('id');
 
         return $data;

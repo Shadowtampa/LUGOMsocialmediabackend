@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Promotion;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -13,9 +13,9 @@ class Promotion extends Model
         return now()->between($this->start_date, $this->end_date);
     }
 
-    // Método genérico para aplicar a promoção
+    // MÃ©todo genÃ©rico para aplicar a promoÃ§Ã£o
     public function apply($order)
     {
-        return $order; // A implementação específica será feita nas subclasses
+        return $order; // A implementaÃ§Ã£o especÃ­fica serÃ¡ feita nas subclasses
     }
 }

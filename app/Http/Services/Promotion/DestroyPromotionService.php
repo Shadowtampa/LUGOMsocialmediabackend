@@ -3,7 +3,7 @@
 namespace App\Http\Services\Promotion;
 
 use App\Http\Services\Service;
-use App\Models\Promotion\Promotion;
+use App\Models\Promotion;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 

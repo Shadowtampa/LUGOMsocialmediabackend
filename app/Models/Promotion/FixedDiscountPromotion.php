@@ -3,6 +3,7 @@
 namespace App\Models\Promotion;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Promotion;
 
 class FixedDiscountPromotion extends Promotion
 {
@@ -12,7 +13,7 @@ class FixedDiscountPromotion extends Promotion
         return now()->between($this->start_date, $this->end_date);
     }
 
-    // Método genérico para aplicar a promoção
+    // MÃ©todo genÃ©rico para aplicar a promoÃ§Ã£o
     public function apply($order)
     {
         $order->total -= $this->discount_amount;

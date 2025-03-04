@@ -10,13 +10,13 @@ class FixedDiscountValidator implements PromotionConfigValidator
 {
     public function validate(array $config, Validator $validator): void
     {
-        // validaÁ„o pra verificar se existe um discount_amount
+        // valida√ß√£o pra verificar se existe um discount_amount
         if (!isset($config['discount_amount']) || !is_numeric($config['discount_amount'])) {
-            $validator->errors()->add('config.discount_amount', 'O desconto deve ser um n˙mero.');
+            $validator->errors()->add('config.discount_amount', 'O desconto deve ser um n√∫mero.');
         }
 
         if (!isset($config['product_id']) || !Product::whereId($config['product_id'])->first()) {
-            $validator->errors()->add('config.discount_amount', 'O produto escolhido n„o existe na base de dados');
+            $validator->errors()->add('config.discount_amount', 'O produto escolhido n√£o existe na base de dados');
         }
     }
 }

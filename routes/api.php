@@ -8,6 +8,8 @@ use App\Http\Controllers\ProductPrice\{IndexProductPriceController, GetProductPr
 
 use App\Http\Controllers\Promotion\{IndexPromotionController, StorePromotionController, GetPromotionController, UpdatePromotionController, DestroyPromotionController};
 
+use App\Http\Controllers\Advertisement\{IndexAdvertisementController, StoreAdvertisementController, GetAdvertisementController, UpdateAdvertisementController, DestroyAdvertisementController};
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -30,15 +32,15 @@ Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth:sanc
 Route::prefix('product')->middleware('auth:sanctum')->group(function () {
     Route::get('/', IndexProductController::class); // Listar todos os produtos
     Route::post('/', StoreProductController::class); //  Criar novo produto
-    Route::get('{id}', GetProductController::class); // Exibir um produto específico
+    Route::get('{id}', GetProductController::class); // Exibir um produto especÃ­fico
     Route::put('{id}', UpdateProductController::class); // Atualizar produto
     Route::delete('{id}', DestroyProductController::class); // Deletar produto
 });
 
 Route::prefix('productprice')->middleware('auth:sanctum')->group(function () {
     Route::post('/', StoreProductPriceController::class); //  Criar novo produto
-    Route::get('/', IndexProductPriceController::class); // Listar todos os preços de produtos
-    Route::get('{id}', GetProductPriceController::class); // Exibir um produto específico
+    Route::get('/', IndexProductPriceController::class); // Listar todos os preÃ§os de produtos
+    Route::get('{id}', GetProductPriceController::class); // Exibir um produto especÃ­fico
     Route::put('{id}', UpdateProductPriceController::class); // Atualizar produto
     Route::delete('{id}', DestroyProductPriceController::class); // Deletar produto
 });
@@ -46,7 +48,16 @@ Route::prefix('productprice')->middleware('auth:sanctum')->group(function () {
 Route::prefix('promotion')->middleware('auth:sanctum')->group(function () {
     Route::get('/', IndexPromotionController::class); // Listar todos os produtos
     Route::post('/', StorePromotionController::class); //  Criar novo produto
-    Route::get('{id}', GetPromotionController::class); // Exibir um produto específico
+    Route::get('{id}', GetPromotionController::class); // Exibir um produto especÃ­fico
     Route::put('{id}', UpdatePromotionController::class); // Atualizar produto
     Route::delete('{id}', DestroyPromotionController::class); // Deletar produto
+});
+
+Route::middleware('auth:sanctum')->group(function () {
+    // Advertisement Routes
+    Route::get('/advertisement', IndexAdvertisementController::class);
+    Route::post('/advertisement', StoreAdvertisementController::class);
+    Route::get('/advertisement/{id}', GetAdvertisementController::class);
+    Route::put('/advertisement/{id}', UpdateAdvertisementController::class);
+    Route::delete('/advertisement/{id}', DestroyAdvertisementController::class);
 });

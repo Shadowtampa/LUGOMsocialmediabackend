@@ -4,6 +4,17 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+/**
+ * @OA\Schema(
+ *     schema="StoreProductRequest",
+ *     required={"name", "condition", "available"},
+ *     @OA\Property(property="name", type="string", example="Smartphone XYZ"),
+ *     @OA\Property(property="description", type="string", nullable=true, example="Smartphone de última geração"),
+ *     @OA\Property(property="condition", type="string", enum={"new", "used"}, example="new"),
+ *     @OA\Property(property="available", type="boolean", example=true),
+ *     @OA\Property(property="image", type="string", format="binary", nullable=true)
+ * )
+ */
 class StoreProductRequest extends FormRequest
 {
     /**
@@ -11,7 +22,7 @@ class StoreProductRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return true; // Garante que apenas usu�rios autenticados possam criar produtos
+        return true; // Garante que apenas usuários autenticados possam criar produtos
     }
 
     /**
@@ -36,7 +47,7 @@ class StoreProductRequest extends FormRequest
     protected function prepareForValidation()
     {
         $this->merge([
-            'user_id' => auth()->id(), // Garante que o produto pertence ao usu�rio autenticado
+            'user_id' => auth()->id(), // Garante que o produto pertence ao usuário autenticado
         ]);
     }
 }
